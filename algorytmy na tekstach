@@ -30,7 +30,9 @@ string s1,s2;
 
 int main()
 {
+    cout<<"podaj pierwsze slowo"<<endl;
     cin>>s1;
+    cout<<"podaj drugie slowo"<<endl;
     cin>>s2;
     if(anagram(s1, s2))cout<<"Slowa sa anagramami"<<endl;
     else cout<<"Slowa nie sa anagramami"<<endl;
