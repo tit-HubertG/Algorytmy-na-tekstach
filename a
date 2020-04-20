@@ -1,0 +1,45 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool palindrom (string s)
+{
+    int dl=s.size();
+    for (int i=0;i<dl/2;i++)
+        if(s[i]!=s[dl-i-1]) return false;
+    return true;
+}
+
+bool anagram(string s1,string s2)
+{
+    int n1=s1.length();
+    int n2=s2.length();
+
+    if(n1!=n2) return false;
+
+    sort(s1.begin(),s1.end());
+    sort(s2.begin(),s2.end());
+
+    for (int i=0;i<n1;i++)
+        if(s1[i]!=s2[i]) return false;
+    return true;
+}
+
+string s1,s2;
+
+int main()
+{
+    cin>>s1;
+    cin>>s2;
+    if(anagram(s1, s2))cout<<"Slowa sa anagramami"<<endl;
+    else cout<<"Slowa nie sa anagramami"<<endl;
+
+    cout<<endl;
+
+   if(palindrom(s1)>0)cout<<s1<<" jest palindromem"<<endl;
+   else cout<<s1<<" nie jest palindromem"<<endl;
+   if(palindrom(s2)>0)cout<<s2<<" jest palindromem"<<endl;
+   else cout<<s2<<" nie jest palindromem"<<endl;
+    return 0;
+}
