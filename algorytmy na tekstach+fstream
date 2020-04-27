@@ -1,5 +1,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
+#include <fstream>
 
 using namespace std;
 
@@ -43,5 +44,19 @@ int main()
    else cout<<s1<<" nie jest palindromem"<<endl;
    if(palindrom(s2)>0)cout<<s2<<" jest palindromem"<<endl;
    else cout<<s2<<" nie jest palindromem"<<endl;
+
+   fstream plik;
+
+   plik.open("plik.txt",ios::out);
+
+   if(anagram(s1, s2))plik<<"Slowa sa anagramami"<<endl;
+   else plik<<"Slowa nie sa anagramami"<<endl;
+   if(palindrom(s1)>0)plik<<s1<<" jest palindromem"<<endl;
+   else plik<<s1<<" nie jest palindromem"<<endl;
+   if(palindrom(s2)>0)plik<<s2<<" jest palindromem"<<endl;
+   else plik<<s2<<" nie jest palindromem"<<endl;
+
+   plik.close();
+
     return 0;
 }
