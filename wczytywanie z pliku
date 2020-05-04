@@ -1,0 +1,63 @@
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    fstream wczytaj;
+    fstream zapisz;
+
+    int linia;
+
+    wczytaj.open("wczytaj.txt", ios::in);
+    zapisz.open("zapisz.txt", ios::out);
+
+    cout<<"co chcesz zrobic?"<<endl<<"1. wypisz liczby parzyste"<<endl<<"2. posegreguj liczby"<<endl;
+
+    int wybor;
+cin>>wybor;
+    switch(wybor)
+    {
+
+        case 1:
+            while(wczytaj.good())
+            {
+                wczytaj>>linia;
+                if(linia%2==0&&linia<=400)
+                {
+                    zapisz<<linia<<endl;
+                }
+            }
+        break;
+
+        case 2:
+        {
+            int T[400];
+              while(wczytaj.good())
+            {
+             for(int i=0;i<400;i++)
+             {
+                wczytaj>>linia;
+                T[i]=linia;
+             }
+            }
+            sort(T, T+400);
+            for (size_t i=0;i!=400;i++)
+            zapisz<<T[i]<<endl;
+        }
+        break;
+
+
+    default:
+        cout<<"blad"<<endl;
+    break;
+
+    }
+
+    wczytaj.close();
+    zapisz.close();
+
+    return 0;
+}
